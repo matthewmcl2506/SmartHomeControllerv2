@@ -38,9 +38,21 @@ namespace SmartHomeController
             this.DeviceID = deviceID;
             this.DeviceName = deviceName;
             this.Status = false; // default status for a new smart item
-
+        }     
+        
+        public void turnOn()
+        {
+            Status = true;
+            Console.WriteLine($"{DeviceName} with Device ID {DeviceID} is now on.");
         }
-
-       
+        public void turnOff() 
+        {
+            Status = false;
+            Console.WriteLine($"{DeviceName} with Device ID {DeviceID} is now off.");
+        }
+        public virtual void getStatus()
+        {
+            Console.WriteLine($"Device ID: {DeviceID}, Name: {DeviceName}, Status(on or off): {(status ? "ON" : "OFF")}");
+        }
     }
 }
